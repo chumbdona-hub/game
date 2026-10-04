@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --nexus-bg0: #070a14;
+  --nexus-bg1: #0b1020;
+  --nexus-surface: rgba(255, 255, 255, 0.06);
+  --nexus-surface2: rgba(255, 255, 255, 0.1);
+  --nexus-text: rgba(255, 255, 255, 0.92);
+  --nexus-muted: rgba(255, 255, 255, 0.65);
+
+  --nexus-accent-a: #22d3ee;
+  --nexus-accent-b: #a78bfa;
+
+  /* Accessibility: UI scaling controlled by settings */
+  --ui-scale: 1;
+}
+
+html,
+body {
+  height: 100%;
+  background: radial-gradient(1200px 800px at 20% 0%, rgba(34, 211, 238, 0.18), transparent 55%),
+    radial-gradient(1000px 700px at 100% 10%, rgba(167, 139, 250, 0.16), transparent 60%),
+    linear-gradient(180deg, var(--nexus-bg0), var(--nexus-bg1));
+  color: var(--nexus-text);
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100%;
+  transform: scale(var(--ui-scale));
+  transform-origin: top left;
+  width: calc(100% / var(--ui-scale));
+}
+
+/* iOS safe-area helpers */
+.safe-px {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+.safe-pt {
+  padding-top: max(16px, env(safe-area-inset-top));
+}
+.safe-pb {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+/* Better touch behavior for games */
+canvas {
+  touch-action: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
